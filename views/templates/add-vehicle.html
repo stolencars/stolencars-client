@@ -1,0 +1,44 @@
+
+{% extends 'layout.html' %}
+
+{% block content %}
+<div>
+
+
+      {% if result.error %}
+        <div class="feedback error">
+          Nastala chyba při vkládání vozidla:
+          <ul>
+          {% for item in result.error.details %}
+              <li>{{item.message}}</li>
+        {% endfor %}
+          </ul>
+        </div>
+      {% elif result and not result.error %}
+        <div class="feedback info">
+            Vozidlo <a href="/">{{result.value.type}}</a> bylo úspešně vloženo do databáze.
+        </div>
+      {% endif %}
+
+      {% if not result or result.error %}
+      <form method="post">
+      <table>
+          <tr><td class="label">Druh vozidla:<td><select name="vehicle_class" value="{{result.value.vehicle_class}}">
+            {% for item in TypesEnum %}
+              <option value="{{item.id}}">{{item.name}}</option>
+            {% endfor %}
+          </select></td></tr>
+          <tr><td class="label">Typ *<td><input type="text" placeholder="například Škoda Octavia" name="type" required value="{{result.value.type}}"/></td></tr>
+          <tr><td class="label">SPZ / Registrační značka *<td><input type="text" placeholder="1X23456" name="registration_code" value="{{result.value.registration_code}}" /></td></tr>
+          <tr><td class="label">VIN kód *<td><input type="text" placeholder="17ti místný kód" name="vin" required value="{{result.value.vin}}" /></td></tr>
+          <tr><td class="label">Číslo motoru<td><input type="text" name="engine_code" value="{{result.value.engine_code}}"/></td></tr>
+          <tr><td class="label">Barva<td><input type="text" name="color" value="{{result.value.color}}"/></td></tr>
+          <tr><td class="label">Rok výroby *<td><input type="text" name="year" required value="{{result.value.year}}"/></td></tr>
+          <tr><td class="label">Datum odcizení *<td><input type="text" name="stolen_date" required value="{{result.value.stolen_date}}"/></td></tr>
+          <tr><td class="label">Doplňující informace:<td><textarea type="text" name="note">{{result.value.note}}</textarea></td></tr>
+          <tr><td class="label">&nbsp;<td><input type="submit" value="Odeslat" class="button-primary" /></td></tr>
+      </table>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

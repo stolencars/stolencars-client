@@ -1,0 +1,25 @@
+
+{% extends 'layout.html' %}
+
+{% block content %}
+<div>
+    <div class="listing">
+    <div class="row">
+    {% for vehicle in vehicles.results %}
+        <div class="four columns vehicle">
+          <h2><a href="/vozidlo/{{vehicle._id}}">{{vehicle.type}}</a></h2>
+          <img src="http://placehold.it/160x120&text=Bez+foto" width="160" height="120" alt="">
+          <table class="compact">
+          {% if vehicle.stolen_date %}
+            <tr><td>Odcizeno: </td><td>{{ vehicle.stolen_date | date("YYYY") }}</td></tr>
+          {% endif %}
+          {% if vehicle.registration_code %}
+            <tr><td>RZ: </td><td>{{ vehicle.registration_code }}</td></tr>
+          {% endif %}
+        </table>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+</div>
+{% endblock %}

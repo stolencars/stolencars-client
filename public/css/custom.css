@@ -1,0 +1,105 @@
+header {
+  padding-top: 10px;
+}
+
+footer {
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 80%;
+}
+
+.feedback {
+  border:1px solid #000;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.feedback li {
+  margin-bottom: 0;
+}
+
+.feedback.error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.feedback.info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+header h1 {
+  font-size: 200%;
+}
+
+table.compact td {
+  padding: 2px 4px;
+}
+
+td.label {
+  text-align: right;
+}
+
+input[type="text"], input[type="password"], select, textarea {
+  min-width: 400px;
+}
+
+.userbar {
+  float: right;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px 0px;
+}
+
+.navigation {
+  clear:both;
+  box-sizing: border-box;
+  position: relative;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar-list {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.navbar-list li {
+  position: relative;
+  display: inline;
+  margin-bottom: 0;
+}
+
+.navbar-list a {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2rem;
+  margin-right: 35px;
+  text-decoration: none;
+  line-height: 6.5rem;
+  color: #222;
+}
+
+.navbar-list a:hover {
+  color:#1EAEDB;
+}
+
+.listing {
+  padding: 20px 0;
+}
+
+.listing .column, .columns {
+  margin-left: 0;
+}
+
+.listing .vehicle h2 {
+  font-size: 130%;
+}
+
+.listing .vehicle {
+  margin:20px 0;
+}

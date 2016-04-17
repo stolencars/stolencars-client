@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div>
+  {% if result.error %}
+    <div class="feedback error">
+      Nastala chyba při přihlašování:
+      <ul>
+      {% for item in result.error.details %}
+          <li>{{item.message}}</li>
+    {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <form method="post">
+    <table>
+      <tr><td class="label">Email:</td><td><input type="text" name="email" value="{{ result.value.email }}"/></td></tr>
+      <tr><td class="label">Password:</td><td><input type="password" name="password" /></td></tr>
+      <tr><td class="label">&nbsp;</td><td><input type="submit" class="button-primary" value="Přihlásit" /></td></tr>
+    </table>
+  </form>
+</div>
+{% endblock %}

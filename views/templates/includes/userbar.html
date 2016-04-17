@@ -1,0 +1,7 @@
+<div class="userbar">
+  {% if user %}
+    Přihlášen: <a href="/user/settings">{{ user.email }}</a> |  <a href="/user/logout">Odhlásit</a>
+  {% else %}
+    <a href="/user/login">Přihlásit</a> | <a href="/user/register">Registrovat</a>
+  {% endif %}
+</div>
